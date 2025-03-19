@@ -49,7 +49,7 @@ app.get('/iso-data', async () => {
 });
 
 app.listen({
-  port: 3000,
+  port: 23,
   hostname: '0.0.0.0', // Atur hostname ke 0.0.0.0
 });
 
