@@ -49,8 +49,8 @@ app.get('/iso-data', async () => {
 });
 
 app.listen({
-  port: 4000,
-  hostname: '47.236.113.94', // Atur hostname ke 0.0.0.0
+  port: 3000,
+  hostname: '0.0.0.0', // Atur hostname ke 0.0.0.0
 });
 
-console.log(`🦊 Elysia is running at https://47.236.113.94:3000`);
+console.log(`🦊 Elysia is running at https://0.0.0.0:3000`);
