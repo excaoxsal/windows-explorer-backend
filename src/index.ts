@@ -48,6 +48,27 @@ app.get('/iso-data', async () => {
   }
 });
 
+app.get('/', async () => {
+  try {
+      const query = `
+          SELECT 
+              i."NOMOR_ISO", 
+              COUNT(p."ID_MASTER_PERTANYAAN") AS jumlah_pertanyaan
+          FROM "TM_PERTANYAAN" p
+          INNER JOIN "TM_ISO" i ON p."ID_ISO" = i."ID_ISO"
+          GROUP BY i."NOMOR_ISO"
+          ORDER BY i."NOMOR_ISO" ASC;
+      `;
+
+      const res = await client.query(query);
+      return res.rows;
+  } catch (error) {
+      console.error('Error fetching ISO data:', error);
+      return { error: 'Failed to fetch ISO data' };
+  }
+});
+
+
 app.listen({
   port: 3000,
   hostname: '0.0.0.0', // Atur hostname ke 0.0.0.0
